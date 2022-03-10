@@ -1,0 +1,163 @@
+[
+    {
+        "id": 1,
+        "name": "더블 에스프레소",
+        "coffeeLevel": 3,
+        "milkLevel": 0,
+        "imageName": "doubleEspresso"
+    },
+    {
+        "id": 2,
+        "name": "콜드 브루",
+        "coffeeLevel": 6,
+        "milkLevel": 0,
+        "imageName": "coldBrew"
+    },
+    {
+        "id": 3,
+        "name": "네스퀵",
+        "coffeeLevel": 5,
+        "milkLevel": 0,
+        "imageName": "nesquik"
+    },
+    {
+        "id": 4,
+        "name": "라테 마키아토",
+        "coffeeLevel": 2,
+        "milkLevel": 5,
+        "imageName": "latteMacchiato"
+    },
+    {
+        "id": 5,
+        "name": "아메리카노",
+        "coffeeLevel": 7,
+        "milkLevel": 0,
+        "imageName": "americano"
+    },
+    {
+        "id": 6,
+        "name": "아메리카노 마일드",
+        "coffeeLevel": 7,
+        "milkLevel": 0,
+        "imageName": "americanoMild"
+    },
+    {
+        "id": 7,
+        "name": "콜롬비아 시에라 네바다 룽고",
+        "coffeeLevel": 4,
+        "milkLevel": 0,
+        "imageName": "colombiaSiera"
+    },
+    {
+        "id": 8,
+        "name": "아메리카노 리치 아로마",
+        "coffeeLevel": 7,
+        "milkLevel": 0,
+        "imageName": "americanoRichAroma"
+    },
+    {
+        "id": 9,
+        "name": "카푸치노",
+        "coffeeLevel": 1,
+        "milkLevel": 6,
+        "imageName": "cappuccino"
+    },
+    {
+        "id": 10,
+        "name": "플랫 화이트",
+        "coffeeLevel": 6,
+        "milkLevel": 0,
+        "imageName": "flatwhite"
+    },
+    {
+        "id": 11,
+        "name": "카페오레",
+        "coffeeLevel": 6,
+        "milkLevel": 0,
+        "imageName": "cafeAuLait"
+    },
+    {
+        "id": 12,
+        "name": "아이스 아메리카노",
+        "coffeeLevel": 3,
+        "milkLevel": 0,
+        "imageName": "icedAmericano"
+    },
+    {
+        "id": 13,
+        "name": "룽고",
+        "coffeeLevel": 4,
+        "milkLevel": 0,
+        "imageName": "lungo"
+    },
+    {
+        "id": 14,
+        "name": "룽고 인텐소",
+        "coffeeLevel": 4,
+        "milkLevel": 0,
+        "imageName": "lungoIntenso"
+    },
+    {
+        "id": 15,
+        "name": "룽고 디카페인",
+        "coffeeLevel": 4,
+        "milkLevel": 0,
+        "imageName": "lungoDecaffein"
+    },
+    {
+        "id": 16,
+        "name": "에스프레소",
+        "coffeeLevel": 2,
+        "milkLevel": 0,
+        "imageName": "espresso"
+    },
+    {
+        "id": 17,
+        "name": "에스프레소 인텐소",
+        "coffeeLevel": 2,
+        "milkLevel": 0,
+        "imageName": "espressoIntenso"
+    },
+    {
+        "id": 18,
+        "name": "리스트레토 아덴자",
+        "coffeeLevel": 1,
+        "milkLevel": 0,
+        "imageName": "ristrettoArdenza"
+    },
+    {
+        "id": 19,
+        "name": "캐러멜 라테 마키아토",
+        "coffeeLevel": 2,
+        "milkLevel": 5,
+        "imageName": "crmlLtMac"
+    },
+    {
+        "id": 20,
+        "name": "초코치노",
+        "coffeeLevel": 4,
+        "milkLevel": 4,
+        "imageName": "chococino"
+    },
+    {
+        "id": 21,
+        "name": "아메리카노 대용량팩 (VALUE)",
+        "coffeeLevel": 7,
+        "milkLevel": 0,
+        "imageName": "americanoValue"
+    },
+    {
+        "id": 22,
+        "name": "룽고 대용량팩 (VALUE)",
+        "coffeeLevel": 4,
+        "milkLevel": 0,
+        "imageName": "lungo1"
+    },
+    {
+        "id": 23,
+        "name": "에스프레소 대용량팩 (VALUE)",
+        "coffeeLevel": 2,
+        "milkLevel": 0,
+        "imageName": "espresso1"
+    }
+]

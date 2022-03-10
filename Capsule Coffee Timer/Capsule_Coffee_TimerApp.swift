@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct Capsule_Coffee_TimerApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

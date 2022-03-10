@@ -1,0 +1,72 @@
+[
+    {
+        "id": 24,
+        "name": "스타벅스® 파이크 플레이스 로스트 BY 네스카페 돌체구스토",
+        "coffeeLevel": 4,
+        "milkLevel": 0,
+        "imageName": "pikePlaceRoast"
+    },
+    {
+        "id": 25,
+        "name": "스타벅스® 카페 라테 BY 네스카페 돌체구스토",
+        "coffeeLevel": 6,
+        "milkLevel": 0,
+        "imageName": "sbuxCaffeLatte"
+    },
+    {
+        "id": 26,
+        "name": "스타벅스® 베란다 블렌드 BY 네스카페 돌체구스토",
+        "coffeeLevel": 7,
+        "milkLevel": 0,
+        "imageName": "starbucksVerandablend"
+    },
+    {
+        "id": 27,
+        "name": "스타벅스® 하우스 블렌드 BY 네스카페 돌체구스토",
+        "coffeeLevel": 7,
+        "milkLevel": 0,
+        "imageName": "starbucksHouseblend"
+    },
+    {
+        "id": 28,
+        "name": "스타벅스® 싱글 오리진 콜롬비아 BY 네스카페 돌체구스토",
+        "coffeeLevel": 1,
+        "milkLevel": 0,
+        "imageName": "colombiaEspresso"
+    },
+    {
+        "id": 29,
+        "name": "스타벅스® 블론드 에스프레소 BY 네스카페 돌체구스토",
+        "coffeeLevel": 1,
+        "milkLevel": 0,
+        "imageName": "starbucksBlondeespresso"
+    },
+    {
+        "id": 30,
+        "name": "스타벅스® 에스프레소 로스트 BY 네스카페 돌체구스토",
+        "coffeeLevel": 1,
+        "milkLevel": 0,
+        "imageName": "starbucksEspressoroast"
+    },
+    {
+        "id": 31,
+        "name": "스타벅스® 카푸치노 BY 네스카페 돌체구스토",
+        "coffeeLevel": 2,
+        "milkLevel": 5,
+        "imageName": "starbucksCappuccino"
+    },
+    {
+        "id": 32,
+        "name": "스타벅스® 라테 마키아토 BY 네스카페 돌체구스토",
+        "coffeeLevel": 1,
+        "milkLevel": 6,
+        "imageName": "starbucksLattemacchiato"
+    },
+    {
+        "id": 33,
+        "name": "스타벅스® 캐러멜 마키아토 BY 네스카페 돌체구스토",
+        "coffeeLevel": 1,
+        "milkLevel": 5,
+        "imageName": "starbucksMacchiato"
+    }
+]
