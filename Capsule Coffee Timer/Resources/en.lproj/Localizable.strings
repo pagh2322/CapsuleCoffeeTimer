@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Capsule Coffee Timer
+
+  Created by peo on 2022/03/13.
+  
+*/
+"doubleEs" = "Double Espresso";
+"sbucksPike" = "Starbucks® Pike Place Roast";
+"coldbrew" = "Cold Brew";
+"nesquik" = "Nesquik";
+"lattema" = "Latte Macchiato";
+"sbucksCaffe" = "Starbucks® Caffè Latte";
+"sbucksVeranda" = "Starbucks® Veranda Blend Americano";
+"sbucksHouse" = "Starbucks® House Blend Americano";
+"sbucksColombia" = "Starbucks® Single Origin Colombia Espresso";
+"sbucksBlonde" = "Starbucks® Blonde Espresso Roast";
+"sbucksEspresso" = "Starbucks® Espresso Roast";
+"sbucksCappu" = "Starbucks® Cappuccino";
+"sbucksLatte" = "Starbucks® Latte Macchiato";
+"sbucksCaramel" = "Starbucks® Caramel Macchiato";
+"americano" = "Americano";
+"grande" = "Grande Mild";
+"colombiaLungo" = "Colombia Lungo";
+"americanoRich" = "Americano Rich Aroma";
+"cappuccino" = "Cappuccino";
+"flatWhite" = "Flat White";
+"caffeAu" = "Cafè Au Lait";
+"icedCoffee" = "Iced Coffee Blend";
+"lungo" = "Lungo";
+"lungoIntenso" = "Lungo Intenso";
+"lungodecaffein" = "Lungo Decaffeinato";
+"espresso" = "Espresso";
+"espressoIntenso" = "Espresso Intenso";
+"ristretto" = "Ristretto Ardenza";
+"latteCaramel" = "Latte Macchiato Caramel";
+"chococino" = "Chococino";
+"americanoV" = "Americano (VALUE)";
+"lungoV" = "Lungo (VALUE)";
+"espressoV" = "Espresso (VALUE)";
+"favorite" = "Favorite";
+"general" = "General";
+"sbucks" = "Starbucks®";

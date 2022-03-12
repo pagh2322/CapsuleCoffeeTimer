@@ -11,11 +11,11 @@ struct CoffeeCapsuleList: View {
     @EnvironmentObject var coffee: Coffee
     
     var body: some View {
-        let category = ["일반", "스타벅스"]
+        let category = ["general".localized(), "sbucks".localized()]
         
         NavigationView {
             List {
-                Section(header: Text("즐겨찾기")) {
+                Section(header: Text("favorite".localized())) {
                     ForEach(coffee.favorites ?? []) { coffee in
                         NavigationLink {
                             CoffeeCapsuleDetail(coffeeCapsule: coffee)

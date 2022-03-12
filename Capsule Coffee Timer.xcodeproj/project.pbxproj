@@ -24,6 +24,7 @@
 		B7FCE05227DA08DD00D759FB /* SbucksCoffeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = B7FCE05127DA08DD00D759FB /* SbucksCoffeeData.json */; };
 		B7FCE05627DC5CE300D759FB /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCE05527DC5CE300D759FB /* SoundEffect.swift */; };
 		B7FCE05827DC5ECB00D759FB /* Ding-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B7FCE05727DC5ECB00D759FB /* Ding-sound-effect.mp3 */; };
+		B7FCE05F27DD0C8300D759FB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7FCE06127DD0C8300D759FB /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		B7FCE05127DA08DD00D759FB /* SbucksCoffeeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SbucksCoffeeData.json; sourceTree = "<group>"; };
 		B7FCE05527DC5CE300D759FB /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		B7FCE05727DC5ECB00D759FB /* Ding-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ding-sound-effect.mp3"; sourceTree = "<group>"; };
+		B7FCE06027DD0C8300D759FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B7FCE06227DD0D1200D759FB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 				B7FCE05727DC5ECB00D759FB /* Ding-sound-effect.mp3 */,
 				B7FCE03527D8C8FE00D759FB /* GeneralCoffeeData.json */,
 				B7FCE05127DA08DD00D759FB /* SbucksCoffeeData.json */,
+				B7FCE06127DD0C8300D759FB /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -180,6 +184,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = B7FCE01627D8A4E400D759FB;
 			productRefGroup = B7FCE02027D8A4E400D759FB /* Products */;
@@ -197,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7FCE03627D8C8FE00D759FB /* GeneralCoffeeData.json in Resources */,
+				B7FCE05F27DD0C8300D759FB /* Localizable.strings in Resources */,
 				B7FCE05227DA08DD00D759FB /* SbucksCoffeeData.json in Resources */,
 				B7FCE05827DC5ECB00D759FB /* Ding-sound-effect.mp3 in Resources */,
 				B7FCE02A27D8A4E500D759FB /* Preview Assets.xcassets in Resources */,
@@ -228,11 +234,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		B7FCE06127DD0C8300D759FB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7FCE06027DD0C8300D759FB /* en */,
+				B7FCE06227DD0D1200D759FB /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		B7FCE02B27D8A4E500D759FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -294,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

@@ -70,5 +70,4 @@ class MilkTimer: ObservableObject {
 enum TimerMode {
     case running
     case stopped
-    case paused
 }
