@@ -24,7 +24,6 @@
 		B7FCE05227DA08DD00D759FB /* SbucksCoffeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = B7FCE05127DA08DD00D759FB /* SbucksCoffeeData.json */; };
 		B7FCE05627DC5CE300D759FB /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCE05527DC5CE300D759FB /* SoundEffect.swift */; };
 		B7FCE05827DC5ECB00D759FB /* Ding-sound-effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B7FCE05727DC5ECB00D759FB /* Ding-sound-effect.mp3 */; };
-		B7FCE05A27DC733900D759FB /* favoriteCoffeeData.json in Resources */ = {isa = PBXBuildFile; fileRef = B7FCE05927DC733900D759FB /* favoriteCoffeeData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +45,6 @@
 		B7FCE05127DA08DD00D759FB /* SbucksCoffeeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SbucksCoffeeData.json; sourceTree = "<group>"; };
 		B7FCE05527DC5CE300D759FB /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		B7FCE05727DC5ECB00D759FB /* Ding-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ding-sound-effect.mp3"; sourceTree = "<group>"; };
-		B7FCE05927DC733900D759FB /* favoriteCoffeeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = favoriteCoffeeData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +102,6 @@
 				B7FCE05727DC5ECB00D759FB /* Ding-sound-effect.mp3 */,
 				B7FCE03527D8C8FE00D759FB /* GeneralCoffeeData.json */,
 				B7FCE05127DA08DD00D759FB /* SbucksCoffeeData.json */,
-				B7FCE05927DC733900D759FB /* favoriteCoffeeData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -201,7 +198,6 @@
 			files = (
 				B7FCE03627D8C8FE00D759FB /* GeneralCoffeeData.json in Resources */,
 				B7FCE05227DA08DD00D759FB /* SbucksCoffeeData.json in Resources */,
-				B7FCE05A27DC733900D759FB /* favoriteCoffeeData.json in Resources */,
 				B7FCE05827DC5ECB00D759FB /* Ding-sound-effect.mp3 in Resources */,
 				B7FCE02A27D8A4E500D759FB /* Preview Assets.xcassets in Resources */,
 				B7FCE02727D8A4E500D759FB /* Assets.xcassets in Resources */,

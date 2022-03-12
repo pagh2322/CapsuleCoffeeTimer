@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CoffeeCapsuleRow: View {
     var coffeeCapsule: CoffeeCapsule
+    @EnvironmentObject var coffee: Coffee
     
     var body: some View {
         HStack {
@@ -21,8 +22,10 @@ struct CoffeeCapsuleRow: View {
             
             Spacer()
             
-            Image(systemName: "star.fill")
-                .foregroundColor(.yellow)
+            if coffee.isFavorite(coffeeCapsule) {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            }
         }
     }
 }

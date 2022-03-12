@@ -54,7 +54,7 @@ struct CoffeeCapsuleDetail: View {
                         Spacer()
                     }
                     .padding()
-                    .foregroundColor(isMilk ? .black : .secondary)
+                    .foregroundColor(isMilk ? .primary : .secondary)
                     .onTapGesture {
                         isMilk.toggle()
                     }
@@ -76,7 +76,7 @@ struct CoffeeCapsuleDetail: View {
                         Spacer()
                 }
                 .padding()
-                .foregroundColor(((coffeeCapsule.milkLevel != 0) && isMilk) ? .secondary : .black)
+                .foregroundColor(((coffeeCapsule.milkLevel != 0) && isMilk) ? .secondary : .primary)
                 .onTapGesture {
                     if coffeeCapsule.milkLevel != 0 {
                         isMilk.toggle()
