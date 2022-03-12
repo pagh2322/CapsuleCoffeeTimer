@@ -9,13 +9,6 @@ import Foundation
 import Combine
 import SwiftUI
 
-//final class ModelData: ObservableObject {
-//    @Published var coffeeCapsules: [CoffeeCapsule] = load("coffeeCapsuleData.json")
-//}
-
-var generalCoffee: [CoffeeCapsule] = load("GeneralCoffeeData.json")
-var sbucksCoffee: [CoffeeCapsule] = load("SbucksCoffeeData.json")
-
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
@@ -37,3 +30,4 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+

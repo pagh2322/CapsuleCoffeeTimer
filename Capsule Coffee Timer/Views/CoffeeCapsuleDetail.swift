@@ -13,15 +13,26 @@ struct CoffeeCapsuleDetail: View {
     @ObservedObject var milkTimer = MilkTimer()
     @State private var isFavorite = false
     @State private var isMilk = false
-//    @State private var isCoffee = false
+    @EnvironmentObject var coffee: Coffee
         
     var body: some View {
         VStack {
             Text(coffeeCapsule.name)
                 .font(.title)
                 .padding(30.0)
-
-            FavoriteButton(isSet: $isFavorite)
+            
+            Button {
+                if !isFavorite {
+                    coffee.addFavorite(coffeeCapsule)
+                } else {
+                    coffee.delFavorite(coffeeCapsule)
+                }
+                isFavorite.toggle()
+            } label: {
+                Label("Toggle Favorite", systemImage: isFavorite ? "star.fill" : "star")
+                    .labelStyle(.iconOnly)
+                    .foregroundColor(isFavorite ? .yellow : .gray)
+            }
 
             Spacer()
 
@@ -77,8 +88,19 @@ struct CoffeeCapsuleDetail: View {
             Spacer()
 
             HStack {
-                Image(systemName: "speaker.wave.2")
+                isMilk ? Image(systemName: milkTimer.isSound ? "speaker.wave.2" : "iphone.radiowaves.left.and.right")
                     .padding(.trailing, 30.0)
+                    .onTapGesture {
+                        if milkTimer.mode == .stopped {
+                            milkTimer.isSound.toggle()
+                        }
+                    } : Image(systemName: coffeeTimer.isSound ? "speaker.wave.2" : "iphone.radiowaves.left.and.right")
+                    .padding(.trailing, 30.0)
+                    .onTapGesture {
+                        if coffeeTimer.mode == .stopped {
+                            coffeeTimer.isSound.toggle()
+                        }
+                    }
                 // 오로지 커피만 넣을때
                 if coffeeCapsule.milkLevel == 0 {
                     if coffeeTimer.mode == .stopped{
@@ -113,47 +135,27 @@ struct CoffeeCapsuleDetail: View {
                                 }
                             }
                     }
-                    
                 }
-//                if coffeeTimer.mode == .stopped || milkTimer.mode == .stopped {
-//                    Image(systemName: "play")
-//                        .onTapGesture {
-//                            if coffeeCapsule.milkLevel != 0, isMilk {
-//                                milkTimer.start(time: getTime(level: coffeeCapsule.milkLevel))
-//                            } else {
-//                                coffeeTimer.start(time: getTime(level: coffeeCapsule.coffeeLevel))
-//                            }
-//                        }
-//                }
-//                else if coffeeTimer.mode == .running || milkTimer.mode == .running {
-//                    Image(systemName: "restart")
-//                        .onTapGesture {
-//                            if coffeeCapsule.milkLevel != 0, isMilk {
-//                                milkTimer.stop()
-//                            } else {
-//                                coffeeTimer.stop()
-//                            }
-//                        }
-//                }
             }
             .padding(.bottom, 200.0)
             .font(.largeTitle)
 
             Spacer()
         }
-        .onAppear(perform: {
+        .onAppear {
             coffeeTimer.time = getTime(level: coffeeCapsule.coffeeLevel)
             if coffeeCapsule.milkLevel != 0 {
                 isMilk = true
                 milkTimer.time = getTime(level: coffeeCapsule.milkLevel)
             }
-        })
+            isFavorite = coffee.isFavorite(coffeeCapsule)
+        }
     }
 }
 
 struct CoffeeCapsuleDetail_Previews: PreviewProvider {
     
     static var previews: some View {
-        CoffeeCapsuleDetail(coffeeCapsule: sbucksCoffee[8])
+        CoffeeCapsuleDetail(coffeeCapsule: Coffee().all[0][0])
     }
 }

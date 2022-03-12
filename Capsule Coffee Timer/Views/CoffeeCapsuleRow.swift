@@ -29,7 +29,7 @@ struct CoffeeCapsuleRow: View {
 
 struct CoffeeCapsuleRow_Previews: PreviewProvider {
     static var previews: some View {
-        CoffeeCapsuleRow(coffeeCapsule: sbucksCoffee[0])
+        CoffeeCapsuleRow(coffeeCapsule: Coffee().all[0][0])
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

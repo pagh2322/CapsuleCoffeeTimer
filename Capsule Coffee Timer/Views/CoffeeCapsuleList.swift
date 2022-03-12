@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct CoffeeCapsuleList: View {
-    
-    let fav = [CoffeeCapsule]()
-    
-//    var favCoffeeCapsules: [CoffeeCapsule] {
-//        modelData.coffeeCapsules.filter { coffeeCapsule in
-//            coffeeCapsule.isFavorite
-//        }
-//    }
+    @EnvironmentObject var coffee: Coffee
     
     var body: some View {
-        let category = ["즐겨찾기", "일반", "스타벅스"]
-        let allCoffee = [fav, generalCoffee, sbucksCoffee]
+        let category = ["일반", "스타벅스"]
         
         NavigationView {
             List {
-                ForEach(allCoffee.indices) { index in
+                Section(header: Text("즐겨찾기")) {
+                    ForEach(coffee.favorites ?? []) { coffee in
+                        NavigationLink {
+                            CoffeeCapsuleDetail(coffeeCapsule: coffee)
+                        } label: {
+                            CoffeeCapsuleRow(coffeeCapsule: coffee)
+                        }
+                    }
+                }
+                ForEach(self.coffee.all.indices) { index in
                     Section(header: Text(category[index])) {
-                        ForEach(allCoffee[index]) { coffee in
+                        ForEach(coffee.all[index]) { coffee in
                             NavigationLink {
                                 CoffeeCapsuleDetail(coffeeCapsule: coffee)
                             } label: {
@@ -34,20 +35,15 @@ struct CoffeeCapsuleList: View {
                         }
                     }
                 }
-//                ForEach(filteredCoffeeCapsules) { coffeeCapsule in
-//                    NavigationLink {
-//                        CoffeeCapsuleDetail(coffeeCapsule: coffeeCapsule)
-//                    } label: {
-//                        CoffeeCapsuleRow(coffeeCapsule: coffeeCapsule)
-//                    }
-//                }
             }
         }
     }
+    
 }
 
 struct CoffeeCapsuleList_Previews: PreviewProvider {
     static var previews: some View {
         CoffeeCapsuleList()
+            .environmentObject(Coffee())
     }
 }

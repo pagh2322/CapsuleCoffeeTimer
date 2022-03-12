@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 import Combine
+import AudioToolbox
 
 class CoffeeTimer: ObservableObject {
     @Published var time = 0
     @Published var mode: TimerMode = .stopped
+    @Published var isSound = false
     var timer = Timer()
     
     func start(time: Int) {
@@ -22,6 +24,11 @@ class CoffeeTimer: ObservableObject {
                 self.time -= 1
             } else if self.time == 0 {
                 self.stop()
+                if self.isSound {
+                    SoundEffect.instance.playSound()
+                } else {
+                    AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) {   }
+                }
             }
         }
     }
@@ -34,6 +41,7 @@ class CoffeeTimer: ObservableObject {
 class MilkTimer: ObservableObject {
     @Published var time = 0
     @Published var mode: TimerMode = .stopped
+    @Published var isSound = false
     var timer = Timer()
     
     func start(time: Int) {
@@ -42,6 +50,13 @@ class MilkTimer: ObservableObject {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             if self.time > 0 {
                 self.time -= 1
+            } else if self.time == 0 {
+                self.stop()
+                if self.isSound {
+                    SoundEffect.instance.playSound()
+                } else {
+                    AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) {   }
+                }
             }
         }
     }
