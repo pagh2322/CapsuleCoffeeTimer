@@ -20,12 +20,27 @@ struct CoffeeCapsule: Codable, Identifiable {
     }
 }
 
-class Coffee: ObservableObject {
-    @Published var all: [[CoffeeCapsule]]
-    @Published var favorites: [CoffeeCapsule]?
+final class ViewModel: ObservableObject {
+    @Published var allCoffeeCapsules: [[CoffeeCapsule]]
+    @Published var favoriteCoffeeCapsules: [CoffeeCapsule]? // 즐겨찾기한 캡슐 목록
+    @Published var searchText = "" {
+        willSet {
+            if newValue.isEmpty {
+                self.filteredCoffeeCapsules = self.allCoffeeCapsules
+            } else {
+                self.filteredCoffeeCapsules[0] = self.allCoffeeCapsules[0].filter { coffeeCapsule in
+                    return coffeeCapsule.name.contains(newValue)
+                }
+                self.filteredCoffeeCapsules[1] = self.allCoffeeCapsules[1].filter { coffeeCapsule in
+                    return coffeeCapsule.name.contains(newValue)
+                }
+            }
+        }
+    }
+    @Published var filteredCoffeeCapsules: [[CoffeeCapsule]] = [[]]
     
     init() {
-        all = [[CoffeeCapsule(id: 1, name: "doubleEs".localized(), coffeeLevel: 3, milkLevel: 0, imageName: "doubleEspresso"),
+        self.allCoffeeCapsules = [[CoffeeCapsule(id: 1, name: "doubleEs".localized(), coffeeLevel: 3, milkLevel: 0, imageName: "doubleEspresso"),
                 CoffeeCapsule(id: 2, name: "coldbrew".localized(), coffeeLevel: 6, milkLevel: 0, imageName: "coldBrew"),
                 CoffeeCapsule(id: 3, name: "nesquik".localized(), coffeeLevel: 5, milkLevel: 0, imageName: "nesquik"),
                 CoffeeCapsule(id: 4, name: "lattema".localized(), coffeeLevel: 2, milkLevel: 5, imageName: "latteMacchiato"),
@@ -61,34 +76,36 @@ class Coffee: ObservableObject {
                 CoffeeCapsule(id: 33, name: "sbucksCaramel".localized(), coffeeLevel: 1, milkLevel: 5, imageName: "starbucksMacchiato"),
                ]]
         if let data = UserDefaults.standard.value(forKey: "favorites") as? Data {
-            favorites = try? PropertyListDecoder().decode([CoffeeCapsule].self, from: data)
+            self.favoriteCoffeeCapsules = try? PropertyListDecoder().decode([CoffeeCapsule].self, from: data)
         }
+        self.filteredCoffeeCapsules = self.allCoffeeCapsules
     }
-    func addFavorite(_ coffeeCapsule: CoffeeCapsule) {
-        if favorites == nil || favorites?.count == 0 {
-            favorites = [coffeeCapsule]
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(favorites), forKey:"favorites")
+    
+    func addToFavorite(_ coffeeCapsule: CoffeeCapsule) {
+        if self.favoriteCoffeeCapsules == nil || self.favoriteCoffeeCapsules!.count == 0 {
+            self.favoriteCoffeeCapsules = [coffeeCapsule]
         } else {
-            for i in favorites! {
-                if i.id == coffeeCapsule.id {
+            for eachCoffeeCapsule in self.favoriteCoffeeCapsules! {
+                if eachCoffeeCapsule.id == coffeeCapsule.id { // 이미 존재하는 경우
                     return
-                } else {
-                    favorites!.insert(coffeeCapsule, at: 0)
-                    UserDefaults.standard.set(try? PropertyListEncoder().encode(favorites), forKey:"favorites")
-                    return
+                } else { // 새로 추가
+                    self.favoriteCoffeeCapsules!.insert(coffeeCapsule, at: 0)
+                    break
                 }
             }
         }
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(self.favoriteCoffeeCapsules), forKey:"favorites")
     }
+    
     func delFavorite(_ coffeeCapsule: CoffeeCapsule) {
         var index = 0
-        if (favorites == nil || favorites?.count == 0) {
+        if (self.favoriteCoffeeCapsules == nil || self.favoriteCoffeeCapsules!.count == 0) {
             return
         } else {
-            for i in favorites! {
-                if i.id == coffeeCapsule.id {
-                    favorites?.remove(at: index)
-                    UserDefaults.standard.set(try? PropertyListEncoder().encode(favorites), forKey:"favorites")
+            for eachCoffeeCapsule in self.favoriteCoffeeCapsules! {
+                if eachCoffeeCapsule.id == coffeeCapsule.id {
+                    self.favoriteCoffeeCapsules!.remove(at: index)
+                    UserDefaults.standard.set(try? PropertyListEncoder().encode(favoriteCoffeeCapsules), forKey:"favorites")
                     return
                 }
                 index += 1
@@ -97,7 +114,7 @@ class Coffee: ObservableObject {
     }
     func isFavorite(_ coffeeCapsule: CoffeeCapsule) -> Bool {
         var isFav = false
-        favorites?.forEach { coffee in
+        self.favoriteCoffeeCapsules?.forEach { coffee in
             if coffee.id == coffeeCapsule.id {
                 isFav = true
             }

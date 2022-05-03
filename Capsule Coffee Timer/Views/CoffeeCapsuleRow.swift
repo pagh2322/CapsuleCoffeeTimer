@@ -9,20 +9,21 @@ import SwiftUI
 
 struct CoffeeCapsuleRow: View {
     var coffeeCapsule: CoffeeCapsule
-    @EnvironmentObject var coffee: Coffee
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         HStack {
             coffeeCapsule.image
                 .resizable()
                 .frame(width: 50, height: 50)
-                .cornerRadius(6)
             
             Text("\(coffeeCapsule.name)")
+                .font(.subheadline)
+                .bold()
             
             Spacer()
             
-            if coffee.isFavorite(coffeeCapsule) {
+            if self.viewModel.isFavorite(coffeeCapsule) {
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
             }
@@ -32,7 +33,7 @@ struct CoffeeCapsuleRow: View {
 
 struct CoffeeCapsuleRow_Previews: PreviewProvider {
     static var previews: some View {
-        CoffeeCapsuleRow(coffeeCapsule: Coffee().all[0][0])
+        CoffeeCapsuleRow(coffeeCapsule: ViewModel().allCoffeeCapsules[0][0])
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

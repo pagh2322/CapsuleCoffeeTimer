@@ -17,7 +17,7 @@ enum Category: Int {
     case Starbucks
     case IceMenu
     
-    func getName() -> String {
+    var name: String {
         switch self {
         case .Americano:
             return "아메리카노"

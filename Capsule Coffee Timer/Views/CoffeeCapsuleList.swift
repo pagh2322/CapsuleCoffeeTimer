@@ -8,25 +8,29 @@
 import SwiftUI
 
 struct CoffeeCapsuleList: View {
-    @EnvironmentObject var coffee: Coffee
+    @EnvironmentObject var viewModel: ViewModel
+    let category = ["general".localized(), "sbucks".localized()]
     
     var body: some View {
-        let category = ["general".localized(), "sbucks".localized()]
-        
         NavigationView {
             List {
-                Section(header: Text("favorite".localized())) {
-                    ForEach(coffee.favorites ?? []) { coffee in
-                        NavigationLink {
-                            CoffeeCapsuleDetail(coffeeCapsule: coffee)
-                        } label: {
-                            CoffeeCapsuleRow(coffeeCapsule: coffee)
+                // Favorite Coffee Capsules List
+                if self.viewModel.searchText.isEmpty {
+                    Section(header: Text("favorite".localized())) {
+                        ForEach(self.viewModel.favoriteCoffeeCapsules ?? []) { coffee in
+                            NavigationLink {
+                                CoffeeCapsuleDetail(coffeeCapsule: coffee)
+                            } label: {
+                                CoffeeCapsuleRow(coffeeCapsule: coffee)
+                            }
                         }
                     }
                 }
-                ForEach(self.coffee.all.indices) { index in
+                
+                // All Coffee Capsules List
+                ForEach(self.viewModel.filteredCoffeeCapsules.indices, id: \.self) { index in
                     Section(header: Text(category[index])) {
-                        ForEach(coffee.all[index]) { coffee in
+                        ForEach(self.viewModel.filteredCoffeeCapsules[index]) { coffee in
                             NavigationLink {
                                 CoffeeCapsuleDetail(coffeeCapsule: coffee)
                             } label: {
@@ -36,14 +40,9 @@ struct CoffeeCapsuleList: View {
                     }
                 }
             }
+            .navigationBarTitle("title".localized())
+            .navigationBarTitleDisplayMode(.inline)
         }
-    }
-    
-}
-
-struct CoffeeCapsuleList_Previews: PreviewProvider {
-    static var previews: some View {
-        CoffeeCapsuleList()
-            .environmentObject(Coffee())
+        .searchable(text: self.$viewModel.searchText)
     }
 }

@@ -12,51 +12,54 @@ struct CoffeeCapsuleDetail: View {
     @ObservedObject var coffeeTimer = CoffeeTimer()
     @ObservedObject var milkTimer = MilkTimer()
     @State private var isFavorite = false
-    @State private var isMilk = false
-    @EnvironmentObject var coffee: Coffee
+    @State var hasMilk = false
+    @State var isMilkSelected = false
+    @EnvironmentObject var viewModel: ViewModel
         
     var body: some View {
         VStack {
-            Text(coffeeCapsule.name)
-                .font(.title)
+            Text(self.coffeeCapsule.name)
+                .font(.title2)
+                .bold()
                 .padding(30.0)
             
             Button {
-                if !isFavorite {
-                    coffee.addFavorite(coffeeCapsule)
+                if !self.isFavorite {
+                    self.viewModel.addToFavorite(self.coffeeCapsule)
                 } else {
-                    coffee.delFavorite(coffeeCapsule)
+                    self.viewModel.delFavorite(self.coffeeCapsule)
                 }
-                isFavorite.toggle()
+                self.isFavorite.toggle()
             } label: {
-                Label("Toggle Favorite", systemImage: isFavorite ? "star.fill" : "star")
-                    .labelStyle(.iconOnly)
-                    .foregroundColor(isFavorite ? .yellow : .gray)
+                Image(systemName: self.isFavorite ? "star.fill" : "star")
+                    .font(.title3)
+                    .foregroundColor(self.isFavorite ? .yellow : .gray)
             }
 
             Spacer()
 
             HStack {
-                if coffeeCapsule.milkLevel != 0 {
+                if self.hasMilk {
                     VStack {
                         Spacer()
                         Text("Milk")
                             .font(.title2)
                             .padding(.vertical, 30.0)
 
-                        if milkTimer.mode == .stopped {
-                            Text("\(getTime(level: coffeeCapsule.milkLevel))")
+                        if self.milkTimer.mode == .stopped {
+                            Text("\(getTime(level: self.coffeeCapsule.milkLevel))")
                                 .font(.title)
                         } else {
-                            Text(String(format: "%d", milkTimer.time))
+                            Text(String(format: "%d", self.milkTimer.time))
                                 .font(.title)}
-
                         Spacer()
                     }
                     .padding()
-                    .foregroundColor(isMilk ? .primary : .secondary)
+                    .foregroundColor(self.isMilkSelected ? .primary : .secondary)
                     .onTapGesture {
-                        isMilk.toggle()
+                        if !self.isMilkSelected {
+                            self.isMilkSelected = true
+                        }
                     }
                 }
 
@@ -66,96 +69,87 @@ struct CoffeeCapsuleDetail: View {
                         .font(.title2)
                         .padding(.vertical, 30.0)
 
-                    if coffeeTimer.mode == .stopped {
-                        Text("\(getTime(level: coffeeCapsule.coffeeLevel))")
+                    if self.coffeeTimer.mode == .stopped {
+                        Text("\(getTime(level: self.coffeeCapsule.coffeeLevel))")
                             .font(.title)
                     } else {
-                        Text(String(format: "%d", coffeeTimer.time))
+                        Text(String(format: "%d", self.coffeeTimer.time))
                             .font(.title)}
-
                         Spacer()
                 }
                 .padding()
-                .foregroundColor(((coffeeCapsule.milkLevel != 0) && isMilk) ? .secondary : .primary)
+                .foregroundColor(((self.coffeeCapsule.milkLevel != 0) && self.isMilkSelected) ? .secondary : .primary)
                 .onTapGesture {
-                    if coffeeCapsule.milkLevel != 0 {
-                        isMilk.toggle()
+                    if self.isMilkSelected {
+                        self.isMilkSelected = false
                     }
                 }
-
             }
 
             Spacer()
 
             HStack {
-                isMilk ? Image(systemName: milkTimer.isSound ? "speaker.wave.2" : "iphone.radiowaves.left.and.right")
-                    .padding(.trailing, 30.0)
+                self.hasMilk ? Image(systemName: self.milkTimer.isSound ? "speaker.wave.2" : "iphone.radiowaves.left.and.right")
+                    .padding(.trailing, 50.0)
                     .onTapGesture {
-                        if milkTimer.mode == .stopped {
-                            milkTimer.isSound.toggle()
+                        if self.milkTimer.mode == .stopped {
+                            self.milkTimer.isSound.toggle()
                         }
-                    } : Image(systemName: coffeeTimer.isSound ? "speaker.wave.2" : "iphone.radiowaves.left.and.right")
-                    .padding(.trailing, 30.0)
+                    } : Image(systemName: self.coffeeTimer.isSound ? "speaker.wave.2" : "iphone.radiowaves.left.and.right")
+                    .padding(.trailing, 50.0)
                     .onTapGesture {
-                        if coffeeTimer.mode == .stopped {
-                            coffeeTimer.isSound.toggle()
+                        if self.coffeeTimer.mode == .stopped {
+                            self.coffeeTimer.isSound.toggle()
                         }
                     }
-                // 오로지 커피만 넣을때
-                if coffeeCapsule.milkLevel == 0 {
-                    if coffeeTimer.mode == .stopped{
+                
+                if !self.hasMilk { // 오로지 커피만 넣을때
+                    if self.coffeeTimer.mode == .stopped {
                         Image(systemName: "play")
                             .onTapGesture {
-                                coffeeTimer.start(time: getTime(level: coffeeCapsule.coffeeLevel))
+                                self.coffeeTimer.start(time: getTime(level: coffeeCapsule.coffeeLevel))
                             }
-                    } else if coffeeTimer.mode == .running{
+                    } else if self.coffeeTimer.mode == .running {
                         Image(systemName: "restart")
                             .onTapGesture {
-                                coffeeTimer.stop()
+                                self.coffeeTimer.stop()
                             }
                     }
-                } else{
-                    // 타이머를 실행할 경우
-                    if coffeeTimer.mode == .stopped && milkTimer.mode == .stopped {
+                } else { // 타이머를 실행할 경우
+                    if self.coffeeTimer.mode == .stopped && self.milkTimer.mode == .stopped {
                         Image(systemName: "play")
                             .onTapGesture {
-                                if milkTimer.mode == .stopped && isMilk { // 밀크타이머
-                                    milkTimer.start(time: getTime(level: coffeeCapsule.milkLevel))
-                                } else if coffeeTimer.mode == .stopped && !isMilk {
-                                    coffeeTimer.start(time: getTime(level: coffeeCapsule.coffeeLevel))
+                                if self.milkTimer.mode == .stopped && self.hasMilk { // 밀크타이머
+                                    self.milkTimer.start(time: getTime(level: self.coffeeCapsule.milkLevel))
+                                } else if self.coffeeTimer.mode == .stopped && !self.hasMilk {
+                                    self.coffeeTimer.start(time: getTime(level: self.coffeeCapsule.coffeeLevel))
                                 }
                             }
                     } else {
                         Image(systemName: "restart")
                             .onTapGesture {
-                                if coffeeTimer.mode == .running {
-                                    coffeeTimer.stop()
+                                if self.coffeeTimer.mode == .running {
+                                    self.coffeeTimer.stop()
                                 } else {
-                                    milkTimer.stop()
+                                    self.milkTimer.stop()
                                 }
                             }
                     }
                 }
             }
-            .padding(.bottom, 200.0)
             .font(.largeTitle)
+            .padding(.bottom, 200.0)
 
             Spacer()
         }
         .onAppear {
-            coffeeTimer.time = getTime(level: coffeeCapsule.coffeeLevel)
-            if coffeeCapsule.milkLevel != 0 {
-                isMilk = true
-                milkTimer.time = getTime(level: coffeeCapsule.milkLevel)
+            self.coffeeTimer.time = getTime(level: coffeeCapsule.coffeeLevel)
+            if self.coffeeCapsule.milkLevel != 0 {
+                self.hasMilk = true
+                self.isMilkSelected = true
+                self.milkTimer.time = getTime(level: coffeeCapsule.milkLevel)
             }
-            isFavorite = coffee.isFavorite(coffeeCapsule)
+            self.isFavorite = self.viewModel.isFavorite(coffeeCapsule)
         }
-    }
-}
-
-struct CoffeeCapsuleDetail_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        CoffeeCapsuleDetail(coffeeCapsule: Coffee().all[0][0])
     }
 }

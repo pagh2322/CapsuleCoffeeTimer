@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct Capsule_Coffee_TimerApp: App {
-    @StateObject private var coffee = Coffee()
+    @StateObject private var viewModel = ViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(coffee)
+                .environmentObject(self.viewModel)
         }
     }
 }
