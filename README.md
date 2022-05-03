@@ -10,4 +10,4 @@
 `EnivornmentObject`를 통해 데이터를 처리하여 `SwiftUI`에서의 SSOT 개념을 알 수 있었고, `UserDefaults`를 통해 사용자가 즐겨찾기한 캡슐을 저장 및 불러오기를 구현하였습니다.(간단한 값이기에 굳이 `Core Data` 혹은 `Json Parsing`의 방식은 사용하지 않았습니다.)
 
 # 사용 스택
-**`SwiftUI`**, `**UserDefaults**`
+**`SwiftUI`**, **`UserDefaults`**
