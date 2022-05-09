@@ -13,27 +13,20 @@ struct CoffeeCapsuleRow: View {
     
     var body: some View {
         HStack {
-            coffeeCapsule.image
+            self.coffeeCapsule.image
                 .resizable()
                 .frame(width: 50, height: 50)
             
-            Text("\(coffeeCapsule.name)")
+            Text("\(self.coffeeCapsule.name)")
                 .font(.subheadline)
                 .bold()
             
             Spacer()
             
-            if self.viewModel.isFavorite(coffeeCapsule) {
+            if self.viewModel.isFavorite(self.coffeeCapsule) {
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
             }
         }
-    }
-}
-
-struct CoffeeCapsuleRow_Previews: PreviewProvider {
-    static var previews: some View {
-        CoffeeCapsuleRow(coffeeCapsule: ViewModel().allCoffeeCapsules[0][0])
-            .previewLayout(.fixed(width: 300, height: 70))
     }
 }

@@ -8,7 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isInited = false
+    @EnvironmentObject var viewModel: ViewModel
+    
     var body: some View {
         CoffeeCapsuleList()
+            .navigationViewStyle(.stack)
+            .task {
+                Task {
+                    if !self.isInited {
+                        self.viewModel.initFavoriteList()
+                        self.isInited = true
+                    }
+                }
+            }
     }
 }

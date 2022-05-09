@@ -47,7 +47,7 @@ struct CoffeeCapsuleDetail: View {
                             .padding(.vertical, 30.0)
 
                         if self.milkTimer.mode == .stopped {
-                            Text("\(getTime(level: self.coffeeCapsule.milkLevel))")
+                            Text("\(self.coffeeCapsule.milkLevel.toLevel)")
                                 .font(.title)
                         } else {
                             Text(String(format: "%d", self.milkTimer.time))
@@ -70,7 +70,7 @@ struct CoffeeCapsuleDetail: View {
                         .padding(.vertical, 30.0)
 
                     if self.coffeeTimer.mode == .stopped {
-                        Text("\(getTime(level: self.coffeeCapsule.coffeeLevel))")
+                        Text("\(self.coffeeCapsule.coffeeLevel.toLevel)")
                             .font(.title)
                     } else {
                         Text(String(format: "%d", self.coffeeTimer.time))
@@ -107,7 +107,7 @@ struct CoffeeCapsuleDetail: View {
                     if self.coffeeTimer.mode == .stopped {
                         Image(systemName: "play")
                             .onTapGesture {
-                                self.coffeeTimer.start(time: getTime(level: coffeeCapsule.coffeeLevel))
+                                self.coffeeTimer.start(time: self.coffeeCapsule.coffeeLevel.toLevel)
                             }
                     } else if self.coffeeTimer.mode == .running {
                         Image(systemName: "restart")
@@ -120,9 +120,9 @@ struct CoffeeCapsuleDetail: View {
                         Image(systemName: "play")
                             .onTapGesture {
                                 if self.milkTimer.mode == .stopped && self.hasMilk { // 밀크타이머
-                                    self.milkTimer.start(time: getTime(level: self.coffeeCapsule.milkLevel))
+                                    self.milkTimer.start(time: self.coffeeCapsule.coffeeLevel.toLevel)
                                 } else if self.coffeeTimer.mode == .stopped && !self.hasMilk {
-                                    self.coffeeTimer.start(time: getTime(level: self.coffeeCapsule.coffeeLevel))
+                                    self.coffeeTimer.start(time: self.coffeeCapsule.coffeeLevel.toLevel)
                                 }
                             }
                     } else {
@@ -143,11 +143,11 @@ struct CoffeeCapsuleDetail: View {
             Spacer()
         }
         .onAppear {
-            self.coffeeTimer.time = getTime(level: coffeeCapsule.coffeeLevel)
+            self.coffeeTimer.time = coffeeCapsule.coffeeLevel.toLevel
             if self.coffeeCapsule.milkLevel != 0 {
                 self.hasMilk = true
                 self.isMilkSelected = true
-                self.milkTimer.time = getTime(level: coffeeCapsule.milkLevel)
+                self.milkTimer.time = coffeeCapsule.milkLevel.toLevel
             }
             self.isFavorite = self.viewModel.isFavorite(coffeeCapsule)
         }

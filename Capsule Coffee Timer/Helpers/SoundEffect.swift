@@ -11,7 +11,6 @@ import AVKit
 
 class SoundEffect: ObservableObject {
     static let instance = SoundEffect()
-    
     var player: AVAudioPlayer?
     
     func playSound() {

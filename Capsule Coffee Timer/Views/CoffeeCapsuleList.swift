@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CoffeeCapsuleList: View {
     @EnvironmentObject var viewModel: ViewModel
-    let category = ["general".localized(), "sbucks".localized()]
     
     var body: some View {
         NavigationView {
@@ -17,7 +16,7 @@ struct CoffeeCapsuleList: View {
                 // Favorite Coffee Capsules List
                 if self.viewModel.searchText.isEmpty {
                     Section(header: Text("favorite".localized())) {
-                        ForEach(self.viewModel.favoriteCoffeeCapsules ?? []) { coffee in
+                        ForEach(self.viewModel.favoriteList) { coffee in
                             NavigationLink {
                                 CoffeeCapsuleDetail(coffeeCapsule: coffee)
                             } label: {
@@ -28,14 +27,22 @@ struct CoffeeCapsuleList: View {
                 }
                 
                 // All Coffee Capsules List
-                ForEach(self.viewModel.filteredCoffeeCapsules.indices, id: \.self) { index in
-                    Section(header: Text(category[index])) {
-                        ForEach(self.viewModel.filteredCoffeeCapsules[index]) { coffee in
-                            NavigationLink {
-                                CoffeeCapsuleDetail(coffeeCapsule: coffee)
-                            } label: {
-                                CoffeeCapsuleRow(coffeeCapsule: coffee)
-                            }
+                Section(header: Text("general".localized())) {
+                    ForEach(self.viewModel.filteredCoffeeCapsules[0]) { coffee in
+                        NavigationLink {
+                            CoffeeCapsuleDetail(coffeeCapsule: coffee)
+                        } label: {
+                            CoffeeCapsuleRow(coffeeCapsule: coffee)
+                        }
+                    }
+                }
+                
+                Section(header: Text("sbucks".localized())) {
+                    ForEach(self.viewModel.filteredCoffeeCapsules[1]) { coffee in
+                        NavigationLink {
+                            CoffeeCapsuleDetail(coffeeCapsule: coffee)
+                        } label: {
+                            CoffeeCapsuleRow(coffeeCapsule: coffee)
                         }
                     }
                 }
