@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct CoffeeCapsuleDetail: View {
     var coffeeCapsule: CoffeeCapsule
@@ -14,8 +15,15 @@ struct CoffeeCapsuleDetail: View {
     @State private var isFavorite = false
     @State var hasMilk = false
     @State var isMilkSelected = false
+    
     @EnvironmentObject var viewModel: ViewModel
     @State var test = 0.0
+    let adUnitId: String = "ca-app-pub-3940256099942544/2934735716"
+    
+    enum AdPosition {
+        case top
+        case bottom
+    }
         
     var body: some View {
         VStack {
@@ -142,6 +150,10 @@ struct CoffeeCapsuleDetail: View {
             .padding(.bottom, 200.0)
             
             Spacer()
+            
+            //Ad
+            BannerAd(adUnitId: adUnitId)
+                .frame(width: UIScreen.main.bounds.width, height: 44, alignment: .center)
         }
         .onAppear {
             self.coffeeTimer.time = coffeeCapsule.coffeeLevel.toLevel

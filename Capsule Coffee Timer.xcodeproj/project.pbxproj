@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C5900B5B14184D21EEC2BEC /* libPods-Capsule Coffee Timer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A048F07C6F174BB5E4148C4B /* libPods-Capsule Coffee Timer.a */; };
 		B76A3207282933AF00697E69 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A3206282933AF00697E69 /* ViewModel.swift */; };
 		B76A32092829358900697E69 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A32082829358900697E69 /* Extensions.swift */; };
+		B76A322A283278AC00697E69 /* BannerAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A3229283278AC00697E69 /* BannerAdViewController.swift */; };
+		B76A322C283278F600697E69 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A322B283278F600697E69 /* BannerAd.swift */; };
 		B7FCE02327D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCE02227D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift */; };
 		B7FCE02527D8A4E400D759FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCE02427D8A4E400D759FB /* ContentView.swift */; };
 		B7FCE02727D8A4E500D759FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7FCE02627D8A4E500D759FB /* Assets.xcassets */; };
@@ -28,8 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86773F0A13D66F1054AE857D /* Pods-Capsule Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capsule Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-Capsule Coffee Timer/Pods-Capsule Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
+		A048F07C6F174BB5E4148C4B /* libPods-Capsule Coffee Timer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Capsule Coffee Timer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76A3206282933AF00697E69 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B76A32082829358900697E69 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B76A32272832774500697E69 /* Capsule-Coffee-Timer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Capsule-Coffee-Timer-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B76A3229283278AC00697E69 /* BannerAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdViewController.swift; sourceTree = "<group>"; };
+		B76A322B283278F600697E69 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		B7FCE01F27D8A4E400D759FB /* Capsule Coffee Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capsule Coffee Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7FCE02227D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capsule_Coffee_TimerApp.swift; sourceTree = "<group>"; };
 		B7FCE02427D8A4E400D759FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +56,7 @@
 		B7FCE05727DC5ECB00D759FB /* Ding-sound-effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ding-sound-effect.mp3"; sourceTree = "<group>"; };
 		B7FCE06027DD0C8300D759FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B7FCE06227DD0D1200D759FB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BE31B1747CEC98EAC975B1FA /* Pods-Capsule Coffee Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capsule Coffee Timer.debug.xcconfig"; path = "Target Support Files/Pods-Capsule Coffee Timer/Pods-Capsule Coffee Timer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,17 +64,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C5900B5B14184D21EEC2BEC /* libPods-Capsule Coffee Timer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FCFF600E3388C23279AC167 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE31B1747CEC98EAC975B1FA /* Pods-Capsule Coffee Timer.debug.xcconfig */,
+				86773F0A13D66F1054AE857D /* Pods-Capsule Coffee Timer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B76A32282832789800697E69 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B76A3229283278AC00697E69 /* BannerAdViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B7FCE01627D8A4E400D759FB = {
 			isa = PBXGroup;
 			children = (
 				B7FCE02127D8A4E400D759FB /* Capsule Coffee Timer */,
 				B7FCE02027D8A4E400D759FB /* Products */,
+				0FCFF600E3388C23279AC167 /* Pods */,
+				C88D861E047EBE458B833BEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +109,8 @@
 		B7FCE02127D8A4E400D759FB /* Capsule Coffee Timer */ = {
 			isa = PBXGroup;
 			children = (
+				B76A32282832789800697E69 /* Controllers */,
+				B76A32272832774500697E69 /* Capsule-Coffee-Timer-Info.plist */,
 				B7FCE02227D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift */,
 				B76A3206282933AF00697E69 /* ViewModel.swift */,
 				B7FCE04827D8F00900D759FB /* Helpers */,
@@ -138,8 +169,17 @@
 				B7FCE04D27D9CF6C00D759FB /* CustomTimer.swift */,
 				B7FCE05527DC5CE300D759FB /* SoundEffect.swift */,
 				B76A32082829358900697E69 /* Extensions.swift */,
+				B76A322B283278F600697E69 /* BannerAd.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C88D861E047EBE458B833BEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A048F07C6F174BB5E4148C4B /* libPods-Capsule Coffee Timer.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +189,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7FCE02D27D8A4E500D759FB /* Build configuration list for PBXNativeTarget "Capsule Coffee Timer" */;
 			buildPhases = (
+				7247E65B5FA9335F2156D3B7 /* [CP] Check Pods Manifest.lock */,
 				B7FCE01B27D8A4E400D759FB /* Sources */,
 				B7FCE01C27D8A4E400D759FB /* Frameworks */,
 				B7FCE01D27D8A4E400D759FB /* Resources */,
@@ -212,6 +253,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7247E65B5FA9335F2156D3B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Capsule Coffee Timer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B7FCE01B27D8A4E400D759FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -220,10 +286,12 @@
 				B7FCE02527D8A4E400D759FB /* ContentView.swift in Sources */,
 				B7FCE04E27D9CF6C00D759FB /* CustomTimer.swift in Sources */,
 				B7FCE03E27D8CAFF00D759FB /* CoffeeCapsuleList.swift in Sources */,
+				B76A322A283278AC00697E69 /* BannerAdViewController.swift in Sources */,
 				B7FCE04727D8EFC100D759FB /* FavoriteButton.swift in Sources */,
 				B7FCE03C27D8CA0900D759FB /* CoffeeCapsuleRow.swift in Sources */,
 				B76A3207282933AF00697E69 /* ViewModel.swift in Sources */,
 				B7FCE04227D8DFB200D759FB /* CoffeeCapsuleDetail.swift in Sources */,
+				B76A322C283278F600697E69 /* BannerAd.swift in Sources */,
 				B7FCE03327D8C5BE00D759FB /* CoffeeCapsule.swift in Sources */,
 				B7FCE02327D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift in Sources */,
 				B76A32092829358900697E69 /* Extensions.swift in Sources */,
@@ -299,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -355,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -367,6 +435,7 @@
 		};
 		B7FCE02E27D8A4E500D759FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE31B1747CEC98EAC975B1FA /* Pods-Capsule Coffee Timer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -376,6 +445,7 @@
 				DEVELOPMENT_TEAM = 6VYPR8MZ57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Capsule-Coffee-Timer-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -396,6 +466,7 @@
 		};
 		B7FCE02F27D8A4E500D759FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86773F0A13D66F1054AE857D /* Pods-Capsule Coffee Timer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -405,6 +476,7 @@
 				DEVELOPMENT_TEAM = 6VYPR8MZ57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Capsule-Coffee-Timer-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
