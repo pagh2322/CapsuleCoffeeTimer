@@ -55,11 +55,12 @@ class MilkTimer: ObservableObject {
                 if self.isSound {
                     SoundEffect.instance.playSound()
                 } else {
-                    AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) {   }
+                    UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                 }
             }
         }
     }
+    
     func stop() {
         timer.invalidate()
         time = 0

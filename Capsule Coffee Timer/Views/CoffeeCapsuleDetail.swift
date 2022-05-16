@@ -15,6 +15,7 @@ struct CoffeeCapsuleDetail: View {
     @State var hasMilk = false
     @State var isMilkSelected = false
     @EnvironmentObject var viewModel: ViewModel
+    @State var test = 0.0
         
     var body: some View {
         VStack {
@@ -139,7 +140,7 @@ struct CoffeeCapsuleDetail: View {
             }
             .font(.largeTitle)
             .padding(.bottom, 200.0)
-
+            
             Spacer()
         }
         .onAppear {
