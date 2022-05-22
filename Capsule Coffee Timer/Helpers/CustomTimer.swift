@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 import Combine
 import AudioToolbox
+import AVFoundation
+import UIKit
 
 class CustomTimer: ObservableObject {
     @Published var time = 0
@@ -34,12 +36,31 @@ class CustomTimer: ObservableObject {
                 self.stop(isCoffee: isCoffee)
                 if self.isSound {
                     SoundEffect.instance.playSound()
+                    self.playSound()
                 } else {
-                    UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+                    self.vibrate(count: 3)
+                    
                 }
             }
         }
     }
+    func playSound() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.3) {
+            SoundEffect.instance.playSound()
+        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.3) {
+            SoundEffect.instance.playSound()
+        }
+    }
+    func vibrate(count: Int) {
+        if count == 0 {
+            return
+        }
+        AudioServicesPlaySystemSoundWithCompletion(kSystemSoundID_Vibrate) { [weak self] in
+            self?.vibrate(count: count - 1)
+        }
+    }
+
     
     func stop(isCoffee: Bool) {
         self.timer.invalidate()

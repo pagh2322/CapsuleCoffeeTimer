@@ -34,7 +34,7 @@ struct CoffeeCapsuleDetail: View {
                         .padding()
                         .foregroundColor(!self.customTimer.isCoffee ? .primary : .secondary)
                         .onTapGesture {
-                            if self.customTimer.isCoffee {
+                            if self.customTimer.mode == .stopped && self.customTimer.isCoffee {
                                 self.customTimer.isCoffee = false
                             }
                         }
@@ -44,7 +44,7 @@ struct CoffeeCapsuleDetail: View {
                     .padding()
                     .foregroundColor((self.customTimer.isCoffee) ? .primary : .secondary)
                     .onTapGesture {
-                        if !self.customTimer.isCoffee {
+                        if self.customTimer.mode == .stopped && !self.customTimer.isCoffee {
                             self.customTimer.isCoffee = true
                         }
                     }
