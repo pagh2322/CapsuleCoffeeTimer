@@ -12,6 +12,8 @@
 		B76A32092829358900697E69 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A32082829358900697E69 /* Extensions.swift */; };
 		B76A322A283278AC00697E69 /* BannerAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A3229283278AC00697E69 /* BannerAdViewController.swift */; };
 		B76A322C283278F600697E69 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A322B283278F600697E69 /* BannerAd.swift */; };
+		B7F2174828364E2D00A2E019 /* CapsuleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F2174728364E2D00A2E019 /* CapsuleItemView.swift */; };
+		B7F2956F2838F332000F7354 /* CapsuleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F2956E2838F332000F7354 /* CapsuleItem.swift */; };
 		B7FCE02327D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCE02227D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift */; };
 		B7FCE02527D8A4E400D759FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCE02427D8A4E400D759FB /* ContentView.swift */; };
 		B7FCE02727D8A4E500D759FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7FCE02627D8A4E500D759FB /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		B76A32272832774500697E69 /* Capsule-Coffee-Timer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Capsule-Coffee-Timer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B76A3229283278AC00697E69 /* BannerAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdViewController.swift; sourceTree = "<group>"; };
 		B76A322B283278F600697E69 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		B7F2174728364E2D00A2E019 /* CapsuleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleItemView.swift; sourceTree = "<group>"; };
+		B7F2956E2838F332000F7354 /* CapsuleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleItem.swift; sourceTree = "<group>"; };
 		B7FCE01F27D8A4E400D759FB /* Capsule Coffee Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capsule Coffee Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7FCE02227D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capsule_Coffee_TimerApp.swift; sourceTree = "<group>"; };
 		B7FCE02427D8A4E400D759FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +90,16 @@
 				B76A3229283278AC00697E69 /* BannerAdViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B7F2174528364DAE00A2E019 /* CoffeeCapsuleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B7FCE04127D8DFB200D759FB /* CoffeeCapsuleDetail.swift */,
+				B7FCE04627D8EFC100D759FB /* FavoriteButton.swift */,
+				B7F2174728364E2D00A2E019 /* CapsuleItemView.swift */,
+			);
+			path = CoffeeCapsuleDetail;
 			sourceTree = "<group>";
 		};
 		B7FCE01627D8A4E400D759FB = {
@@ -148,8 +162,7 @@
 				B7FCE02427D8A4E400D759FB /* ContentView.swift */,
 				B7FCE03D27D8CAFF00D759FB /* CoffeeCapsuleList.swift */,
 				B7FCE03B27D8CA0900D759FB /* CoffeeCapsuleRow.swift */,
-				B7FCE04127D8DFB200D759FB /* CoffeeCapsuleDetail.swift */,
-				B7FCE04627D8EFC100D759FB /* FavoriteButton.swift */,
+				B7F2174528364DAE00A2E019 /* CoffeeCapsuleDetail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +172,7 @@
 			children = (
 				B7FCE03227D8C5BE00D759FB /* CoffeeCapsule.swift */,
 				B7FCE03F27D8D14900D759FB /* Category.swift */,
+				B7F2956E2838F332000F7354 /* CapsuleItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,11 +305,13 @@
 				B7FCE03C27D8CA0900D759FB /* CoffeeCapsuleRow.swift in Sources */,
 				B76A3207282933AF00697E69 /* ViewModel.swift in Sources */,
 				B7FCE04227D8DFB200D759FB /* CoffeeCapsuleDetail.swift in Sources */,
+				B7F2956F2838F332000F7354 /* CapsuleItem.swift in Sources */,
 				B76A322C283278F600697E69 /* BannerAd.swift in Sources */,
 				B7FCE03327D8C5BE00D759FB /* CoffeeCapsule.swift in Sources */,
 				B7FCE02327D8A4E400D759FB /* Capsule_Coffee_TimerApp.swift in Sources */,
 				B76A32092829358900697E69 /* Extensions.swift in Sources */,
 				B7FCE05627DC5CE300D759FB /* SoundEffect.swift in Sources */,
+				B7F2174828364E2D00A2E019 /* CapsuleItemView.swift in Sources */,
 				B7FCE04027D8D14900D759FB /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,17 +462,19 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Capsule-Coffee-Timer-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dolce Coffee Timer";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "pagh2322.Capsule-Coffee-Timer";
+				MARKETING_VERSION = 1.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pagh2322.Dolce-Coffee-Timer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -477,17 +495,19 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Capsule-Coffee-Timer-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dolce Coffee Timer";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "pagh2322.Capsule-Coffee-Timer";
+				MARKETING_VERSION = 1.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pagh2322.Dolce-Coffee-Timer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

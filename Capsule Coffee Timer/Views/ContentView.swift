@@ -15,6 +15,7 @@ struct ContentView: View {
         CoffeeCapsuleList()
             .navigationViewStyle(.stack)
             .task {
+                // Initialize favoritelist when first launched
                 Task {
                     if !self.isInited {
                         self.viewModel.initFavoriteList()

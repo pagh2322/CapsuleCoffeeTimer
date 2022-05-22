@@ -10,48 +10,28 @@ import SwiftUI
 import Combine
 import AudioToolbox
 
-class CoffeeTimer: ObservableObject {
+class CustomTimer: ObservableObject {
     @Published var time = 0
     @Published var mode: TimerMode = .stopped
     @Published var isSound = false
     var timer = Timer()
+    @Published var coffeeTime: Int = 0
+    @Published var milkTime: Int = 0
+    @Published var isCoffee = true
     
-    func start(time: Int) {
-        mode = .running
-        self.time = time
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if self.time > 0 {
-                self.time -= 1
-            } else if self.time == 0 {
-                self.stop()
-                if self.isSound {
-                    SoundEffect.instance.playSound()
-                } else {
-                    AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) {   }
-                }
-            }
-        }
+    enum TimerMode {
+        case running
+        case stopped
     }
-    func stop() {
-        timer.invalidate()
-        time = 0
-        mode = .stopped
-    }
-}
-class MilkTimer: ObservableObject {
-    @Published var time = 0
-    @Published var mode: TimerMode = .stopped
-    @Published var isSound = false
-    var timer = Timer()
     
-    func start(time: Int) {
-        mode = .running
-        self.time = time
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if self.time > 0 {
+    func start(isCoffee: Bool) {
+        self.mode = .running
+        self.time = isCoffee ? self.coffeeTime : self.milkTime
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if self.time > 0 { // doing
                 self.time -= 1
-            } else if self.time == 0 {
-                self.stop()
+            } else if self.time == 0 { // end
+                self.stop(isCoffee: isCoffee)
                 if self.isSound {
                     SoundEffect.instance.playSound()
                 } else {
@@ -61,14 +41,11 @@ class MilkTimer: ObservableObject {
         }
     }
     
-    func stop() {
-        timer.invalidate()
-        time = 0
-        mode = .stopped
+    func stop(isCoffee: Bool) {
+        self.timer.invalidate()
+        self.time = isCoffee ? self.coffeeTime : self.milkTime
+        self.mode = .stopped
     }
 }
 
-enum TimerMode {
-    case running
-    case stopped
-}
+

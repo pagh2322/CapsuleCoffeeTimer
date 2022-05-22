@@ -9,7 +9,7 @@ import Foundation
 
 final class ViewModel: ObservableObject {
     @Published var allCoffeeCapsules: [[CoffeeCapsule]] = CoffeeCapsule.all
-    @Published var favoriteList: [CoffeeCapsule] = [] // 즐겨찾기한 캡슐 목록
+    @Published var favoriteList: [CoffeeCapsule] = []
     @Published var filteredCoffeeCapsules: [[CoffeeCapsule]] = CoffeeCapsule.all
     
     @Published var searchText = "" {
